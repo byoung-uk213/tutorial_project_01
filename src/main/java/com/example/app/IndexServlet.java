@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet({"/", "/index"}) // 이런식으로 2개 설정 가능
+@WebServlet("/index") // 이런식으로 2개 설정 가능
 public class IndexServlet extends HttpServlet {
 
     @Override
