@@ -1,7 +1,7 @@
 package com.example.app.util;
 
 
-import com.example.app.vo.Member;
+import com.example.app.model.Member;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
