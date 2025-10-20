@@ -16,5 +16,6 @@
     </environments>
     <mappers>
         <mapper resource="mappers/MemberMapper.xml"/>
+        <mapper resource="mappers/LoginHistoryMapper.xml"/>
     </mappers>
 </configuration>

@@ -16,8 +16,13 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        SqlSessionFactory factory = MyBatisUtil.build();
-        System.out.println(factory);
+
+        if(req.getSession().getAttribute("logonUser") == null) {
+            req.setAttribute("auth", false);
+        } else {
+            req.setAttribute("auth", true);
+        }
+
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 }
