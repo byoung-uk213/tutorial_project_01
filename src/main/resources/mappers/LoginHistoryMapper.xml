@@ -6,5 +6,7 @@
     <insert id="insertOne" parameterType="java.lang.String">
         insert into loginHistory(memberId) values(#{id})
     </insert>
-
+    <select id="selectByMemberId" parameterType="java.lang.String" resultType="com.example.app.model.LoginHistory">
+        select * from loginHistory where memberId=#{id}
+    </select>
 </mapper>
