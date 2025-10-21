@@ -20,5 +20,6 @@
     <mappers>
         <mapper resource="mappers/MemberMapper.xml"/>
         <mapper resource="mappers/LoginHistoryMapper.xml"/>
+        <mapper resource="mappers/ArticleMapper.xml"/>
     </mappers>
 </configuration>
