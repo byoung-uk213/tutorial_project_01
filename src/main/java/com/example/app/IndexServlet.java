@@ -8,8 +8,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.ocpsoft.prettytime.PrettyTime;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.Locale;
 
 @WebServlet("/index") // 이런식으로 2개 설정 가능
 public class IndexServlet extends HttpServlet {
