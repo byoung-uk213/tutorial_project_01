@@ -38,7 +38,7 @@
                 <div style="white-space: pre-line">
                     <c:out value="${article.content}"></c:out>
                 </div>
-                <div>
+                <div style="padding: 1.25rem 0rem">
                     <button onclick="reactionHandle(${auth});">
                         ${alreadyLike ? '🧡' : '🤍'}
                         &nbsp;${article.likeCnt}
