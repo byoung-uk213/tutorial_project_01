@@ -62,6 +62,13 @@ body {
     font-size: 0.75rem;
     color : #8f8f8f;
 }
+.article-link{
+    text-decoration: none;
+    color: #3f3f3f;
+}
+.article-link:hover {
+    color: #79c0f8;
+}
 .text-center {
     text-align: center;
 }

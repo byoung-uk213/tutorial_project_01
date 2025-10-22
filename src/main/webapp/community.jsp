@@ -37,12 +37,16 @@
                             <span>&sdot; ${one.prettyWroteAt}</span>
                         </div>
                         <div>
-                            <span>${one.viewCnt}</span>
-                            <span>${one.likeCnt}</span>
+                            <span style="font-size: small">👁 ${one.viewCnt}</span>
+                            <span style="font-size: small">👍 ${one.likeCnt}</span>
                         </div>
                     </div>
                     <div>
-                        <span style="font-size: 1.1rem; font-weight: 500">${one.title}<small>(${one.commentCnt})</small></span>
+                        <a href="/article?no=${one.no}" class="article-link">
+                            <span style="font-size: 1.1rem; font-weight: 500">
+                                    <c:out value="${one.title}"/></span>
+                        </a>
+                        <small>💬(${one.commentCnt})</small>
                     </div>
                 </div>
             </c:forEach>
