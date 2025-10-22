@@ -18,4 +18,7 @@
     <select id="selectByNo" resultType="Article" parameterType="int">
         select * from article where no=#{no}
     </select>
+    <update id="updateViewCnt" parameterType="int">
+        update article set viewCnt = viewCnt+1 where no=#{no}
+    </update>
 </mapper>
