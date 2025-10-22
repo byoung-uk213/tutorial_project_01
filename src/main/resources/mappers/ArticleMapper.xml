@@ -21,4 +21,10 @@
     <update id="updateViewCnt" parameterType="int">
         update article set viewCnt = viewCnt+1 where no=#{no}
     </update>
+    <update id="increaseLikeCnt" parameterType="int">
+        update article set likeCnt = likeCnt+1 where no=#{no}
+    </update>
+    <update id="decreaseLikeCnt" parameterType="int">
+        update article set likeCnt = likeCnt-1 where no=#{no}
+    </update>
 </mapper>

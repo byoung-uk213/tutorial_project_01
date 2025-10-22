@@ -10,6 +10,9 @@
     <div>
         로고
     </div>
+    <div>
+        <a href="/community">커뮤니티</a>
+    </div>
     <c:choose>
         <c:when test="${auth}">
             <div>
