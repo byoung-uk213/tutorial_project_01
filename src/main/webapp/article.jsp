@@ -28,9 +28,11 @@
                         <span>${article.prettyWroteAt}</span>
                         <span>👁${article.viewCnt}</span>
                     </div>
+                    <c:if test="${owner}">
                     <div>
-                        <button>📌</button>
+                        <a href="/article/delete?no=${article.no}"><button>삭제</button></a>
                     </div>
+                    </c:if>
                 </div>
                 <div>
                     <h2><c:out value="${article.title}"/></h2>
