@@ -11,13 +11,14 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/community")
 public class CommunityServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(req.getSession().getAttribute("logonUser") != null) {
+        if (req.getSession().getAttribute("logonUser") != null) {
             req.setAttribute("auth", true);
         } else {
             req.setAttribute("auth", false);
@@ -25,17 +26,26 @@ public class CommunityServlet extends HttpServlet {
         //===============================
         int page = req.getParameter("page") != null ?
                 Integer.parseInt(req.getParameter("page")) : 1;
+        String keyword = req.getParameter("keyword") != null ? req.getParameter("keyword") : "";
 
         SqlSession sqlSession = MyBatisUtil.build().openSession(true);
+
+        sqlSession.selectList("mappers.ArticleMapper.selectByOffset", (page - 1) * 10);
+
+        Map param = Map.of("offset", (page - 1) * 10, "keyword", "%" + keyword + "%");
         List<Article> articles =
-                sqlSession.selectList("mappers.ArticleMapper.selectByOffset", (page-1)*10);
-        int count = sqlSession.selectOne("mappers.ArticleMapper.countAll");
-        int lastPage = count / 10 + (count % 10 > 0 ? 0 : 1);
+                sqlSession.selectList("mappers.ArticleMapper.selectLikeKeywordByOffset", param);
+
+        //int count = sqlSession.selectOne("mappers.ArticleMapper.countAll");
+        int count = sqlSession.selectOne("mappers.ArticleMapper.countLikeKeyword",
+                                                                            "%"+keyword+"%");
+        int lastPage = count / 10 + (count % 10 > 0 ? 1 : 0);
 
         req.setAttribute("articles", articles);
         req.setAttribute("lastPage", lastPage);
         req.setAttribute("page", page);
         req.setAttribute("count", count);
+        req.setAttribute("keyword", keyword);
         req.getRequestDispatcher("/community.jsp").forward(req, resp);
     }
 }

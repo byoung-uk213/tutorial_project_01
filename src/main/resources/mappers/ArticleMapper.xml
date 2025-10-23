@@ -14,8 +14,17 @@
     <select id="countAll" resultType="int">
         select count(*) from article
     </select>
+    <select id="countLikeKeyword" resultType="int">
+        select count(*) from article
+        where title like #{keyword} or content like #{keyword}
+    </select>
     <select id="selectByOffset" resultType="Article" parameterType="int">
         select * from article order by wroteAt desc limit 10 offset #{offset}
+    </select>
+    <select id="selectLikeKeywordByOffset" resultType="article" parameterType="map">
+        select * from article
+        where title like #{keyword} or content like #{keyword}
+        order by wroteAt desc limit 10 offset #{offset}
     </select>
 
     <select id="selectByTopic" resultType="Article" parameterType="string">

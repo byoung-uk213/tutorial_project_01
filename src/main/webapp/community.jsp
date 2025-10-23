@@ -55,9 +55,19 @@
         </div>
         <!-- 페이지 링크 영역 -->
         <div style="padding: 1.5rem 0rem">
-            <c:forEach var="i" begin="1" end="5">
-                <a href="community?page=${i}" class="${page == i ? 'active-page-link':'page-link'}">${i}</a>
+            <c:forEach var="i" begin="1" end="${lastPage}">
+                <a href="community?page=${i}"
+                   class="${page == i ? 'active-page-link':'page-link'}"
+                >${i}</a>
             </c:forEach>
+        </div>
+        <!-- 검색 영역 -->
+        <div style="padding: 0.5rem 0rem; text-align: center">
+            <form action="/community">
+                <input type="text" name="keyword" class="input" style="width: 200px"
+                       placeholder="커뮤니티 내에서 검색"
+                        value="${keyword}"/>
+            </form>
         </div>
     </div>
     <div style="flex: 1">
