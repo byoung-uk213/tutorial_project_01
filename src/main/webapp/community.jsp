@@ -16,7 +16,14 @@
 <%@include file="/template/header.jsp"%>
 <div class="main">
     <div style="flex: 1">
-        -- 유저 목록 --
+        <h4>에디터 초이스</h4>
+       <ul>
+           <c:forEach var="one" items="${top5Likes}">
+               <li style="font-size: small">
+                   <a href="/article?no=${one.no}">${one.title}</a>
+               </li>
+           </c:forEach>
+       </ul>
     </div>
     <div style="flex: 4">
         <!-- 이미지 배너 -->

@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +42,10 @@ public class CommunityServlet extends HttpServlet {
                                                                             "%"+keyword+"%");
         int lastPage = count / 10 + (count % 10 > 0 ? 1 : 0);
 
+        List<Article> top5Likes =
+            sqlSession.selectList("mappers.ArticleMapper.selectTop5Likes", LocalDate.now().minusDays(7));
+
+        req.setAttribute("top5Likes", top5Likes);
         req.setAttribute("articles", articles);
         req.setAttribute("lastPage", lastPage);
         req.setAttribute("page", page);

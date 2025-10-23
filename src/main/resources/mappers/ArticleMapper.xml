@@ -26,6 +26,11 @@
         where title like #{keyword} or content like #{keyword}
         order by wroteAt desc limit 10 offset #{offset}
     </select>
+    <select id="selectTop5Likes" resultType="article" parameterType="java.time.LocalDate">
+        select * from article
+            where likeCnt > 0 and wroteAt >= #{date}
+        order by likeCnt desc limit 5
+    </select>
 
     <select id="selectByTopic" resultType="Article" parameterType="string">
         select * from article where topic=#{topic}
