@@ -25,8 +25,10 @@
         </div>
         <!-- 네비게이터 -->
         <div>
+            전체 글수 : <span>${count}</span>
             <button onclick="location.href='/community/new'">작성하기</button>
         </div>
+        <!-- 글 목록 영역 -->
         <div style="flex: 1">
             <c:forEach items="${articles}" var="one">
                 <div class="article-item">
@@ -51,11 +53,17 @@
                 </div>
             </c:forEach>
         </div>
+        <!-- 페이지 링크 영역 -->
+        <div style="padding: 1.5rem 0rem">
+            <c:forEach var="i" begin="1" end="5">
+                <a href="community?page=${i}" class="${page == i ? 'active-page-link':'page-link'}">${i}</a>
+            </c:forEach>
+        </div>
     </div>
-    <!-- 글 목록 영역 -->
     <div style="flex: 1">
         -- 인기글
     </div>
+
 </div>
 </body>
 </html>

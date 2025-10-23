@@ -69,6 +69,16 @@ body {
 .article-link:hover {
     color: #79c0f8;
 }
+.artive-page-link {
+    color: #79c0f8;
+    font-weight: bold;
+    text-decoration: none;
+}
+.page-link {
+    color: #3f3f3f;
+    text-decoration: none;
+}
+
 .text-center {
     text-align: center;
 }
