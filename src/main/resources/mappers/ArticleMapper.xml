@@ -18,6 +18,7 @@
     <select id="selectByNo" resultType="Article" parameterType="int">
         select * from article where no=#{no}
     </select>
+
     <update id="updateViewCnt" parameterType="int">
         update article set viewCnt = viewCnt+1 where no=#{no}
     </update>
@@ -27,6 +28,10 @@
     <update id="decreaseLikeCnt" parameterType="int">
         update article set likeCnt = likeCnt-1 where no=#{no}
     </update>
+    <update id="updateOne" parameterType="article">
+        update article set topic=#{topic}, title=#{title}, content=#{content} where no=#{no}
+    </update>
+
     <delete id="deleteByNo" parameterType="int">
         delete from article where no=#{no}
     </delete>

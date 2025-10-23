@@ -30,6 +30,7 @@
                     </div>
                     <c:if test="${owner}">
                     <div>
+                        <a href="/article/edit?no=${article.no}"><button>수정</button></a>
                         <a href="/article/delete?no=${article.no}"><button>삭제</button></a>
                     </div>
                     </c:if>
