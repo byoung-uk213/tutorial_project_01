@@ -52,8 +52,29 @@
                 </div>
             </div>
             <!-- 댓글 영역 -->
+            <div style="flex: 1">
+                <label>댓글</label>
+                <form action="/article/comment" method="post">
+                    <input type="hidden" name="articleNo" value="${article.no}"/>
+                <c:choose>
+                    <c:when test="${auth}">
+                        <textarea placeholder="댓글을 남겨주세요" name="content"></textarea>
+                        <button>댓글등록</button>
+                    </c:when>
+                    <c:otherwise>
+                        <textarea placeholder="로그인이 필요한 기능입니다." readonly></textarea>
+                        <button>댓글등록</button>
+                    </c:otherwise>
+                </c:choose>
+                </form>
+            </div>
+            <!-- 댓글 직어주는 영역 -->
             <div>
-
+                <c:forEach items="${comments}" var="one">
+                    <p>
+                        ${one.writerId} - ${one.content} <small>${one.commentedAt}</small>
+                    </p>
+                </c:forEach>
             </div>
         </div>
         <div style="flex: 1"></div>

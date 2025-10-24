@@ -18,7 +18,7 @@
             <div>
                 <button>스크랩</button>
                 <button>알림</button>
-                <button>설정</button>
+                <a href="/setting/profile"><button>설정</button></a>
                 <a href="logout"><button>로그아웃</button></a>
             </div>
         </c:when>

@@ -22,5 +22,6 @@
         <mapper resource="mappers/LoginHistoryMapper.xml"/>
         <mapper resource="mappers/ArticleMapper.xml"/>
         <mapper resource="mappers/ArticleLikeMapper.xml"/>
+        <mapper resource="mappers/CommentMapper.xml"/>
     </mappers>
 </configuration>

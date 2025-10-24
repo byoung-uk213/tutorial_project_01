@@ -78,9 +78,15 @@
         </div>
     </div>
     <div style="flex: 1">
-        -- 인기글
+        <h4>Top5 Writers</h4>
+        <ul>
+        <c:forEach var="one" items="${top5Writer}" varStatus="a">
+            <li style="font-size: small">
+                ${a.count}등 ${one.writerId} (${one.writerCnt})
+            </li>
+        </c:forEach>
+        </ul>
     </div>
-
 </div>
 </body>
 </html>

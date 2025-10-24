@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.CommentMapper">
+    <insert id="insertOne" parameterType="comment">
+        insert into comment(articleNo, writerId,  content)
+            values(#{articleNo}, #{writerId}, #{content})
+    </insert>
+    <select id="selectByArticleNo" parameterType="int" resultType="comment" >
+        select * from comment where articleNo=#{no} order by commentedAt desc
+    </select>
+</mapper>
