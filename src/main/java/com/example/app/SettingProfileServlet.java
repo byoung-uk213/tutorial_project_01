@@ -18,19 +18,19 @@ public class SettingProfileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 인증 유무
         if(req.getSession().getAttribute("logonUser") == null){
             resp.sendRedirect("/login");
             return;
         }
+        // 수정폼으로 넘겨서 화면을 만들어서 전송
+        // 기존 정보를 가지고 와서 미리 보여줄 필요가 있음
         Member logonUser = (Member) req.getSession().getAttribute("logonUser");
         SqlSession sqlSession = MyBatisUtil.build().openSession(true);
 
-
        Member member =
                 sqlSession.selectOne("mappers.MemberMapper.selectById", logonUser.getId());
-
-
-
+       // 굳이 DB에서 다시 안불러와도, session에 로그인 과정에서 정보를 넣어두니까 그걸 사용해도 같을 것 같다.
         req.setAttribute("member", member);
         req.getRequestDispatcher("/setting/profile.jsp").forward(req, resp);
 
@@ -40,19 +40,19 @@ public class SettingProfileServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
+        Member logonUser = (Member) req.getSession().getAttribute("logonUser");
         String name = req.getParameter("name");
         String nickname = req.getParameter("nickname");
         String email = req.getParameter("email");
 
         Member one = new Member();
-        one.setId(id);
+        one.setId(logonUser.getId());
         one.setName(name);
         one.setNickname(nickname);
         one.setEmail(email);
 
         SqlSession sqlSession = MyBatisUtil.build().openSession(true);
-        int r = sqlSession.update("mappers.ArticleMapper.updateTwo", one);
+        int r = sqlSession.update("mappers.MemberMapper.updateTwo", one);
         sqlSession.close();
 
         resp.sendRedirect("/index");

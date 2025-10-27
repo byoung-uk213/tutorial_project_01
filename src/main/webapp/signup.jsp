@@ -66,7 +66,7 @@
         <p class="text-center text-gray">
             가제는 소프트웨어 개발자를 위한 지식공유 플랫폼입니다.
         </p>
-        <form class="signup-form" action="signup" method="post">
+        <form class="signup-form" action="/signup" method="post">
             <div>
                 <label for="id"><small>아이디</small></label>
                 <div class="mt-1">
@@ -117,7 +117,7 @@
                 </div>
             </div>
             <div>
-                <button class="bt-submit">회원가입</button>
+                <button type="submit" class="bt-submit">회원가입</button>
             </div>
         </form>
     </div>

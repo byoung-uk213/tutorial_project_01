@@ -81,6 +81,7 @@
         <p class="text-center text-gray">
             가제는 소프트웨어 개발자를 위한 지식공유 플랫폼입니다.
         </p>
+        회원가입실패
         <form class="signup-form" action="/signup" method="post">
             <c:if test="${mainError != null}">
                 <div class="error-main">

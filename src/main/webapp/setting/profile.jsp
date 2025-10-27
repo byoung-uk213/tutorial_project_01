@@ -16,11 +16,11 @@
 <%@include file="/template/header.jsp"%>
 <div class="main">
     <div style="flex:1">
-        <div class="mt-3" style="">
+        <div>
             <div>
                 <a href="/setting/profile"><button type="reset" class="bt-submit" >프로필</button></a>
             </div>
-            <div>
+            <div class="mt-1">
                 <a href="/setting/password-changes"><button type="submit" class="bt-submit">비밀번호 변경</button></a>
             </div>
         </div>
@@ -31,25 +31,25 @@
     <div>
         <form action="/setting/profile" method="post">
             <input type="hidden" name="id" value="${member.id}"/>
-            <div class="mt-2">
+            <div class="mt-1">
                 <label>이름</label>
                 <div>
                     <input type="text" class="input-100" name="name" value="${member.name}"/>
                 </div>
             </div>
-            <div class="mt-2">
+            <div class="mt-1">
                 <label>닉네임</label>
                 <div>
                     <input type="text" class="input-100" name="nickname" value="${member.nickname}"/>
                 </div>
             </div>
-            <div class="mt-2">
+            <div class="mt-1">
                 <label>이메일(Email)</label>
                 <div>
                     <input type="text" class="input-100" name="email" value="${member.email}"/>
                 </div>
             </div>
-            <div class="mt-3" style="display: flex; justify-content: space-between">
+            <div class="mt-1" style="display: flex; justify-content: space-between">
                 <button type="reset" class="bt-submit">취소</button>
                 <button type="submit" class="bt-submit">수정</button>
             </div>

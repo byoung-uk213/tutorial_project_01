@@ -13,4 +13,17 @@
     <select id="selectByNickname" parameterType="java.lang.String" resultType="com.example.app.model.Member">
         select * from member where nickname=#{nickname}
     </select>
+
+    <!-- 회원정보 수정 및 비밀번호 수정
+   Member을 수정하는 거라 원래는 MemberMapper.xml에 쓰는게 맞음 -->
+    <update id="updateTwo" parameterType="member">
+        update member set name=#{name}, nickname=#{nickname}, email=#{email} where id=#{id}
+    </update>
+    <update id="updatePassword" parameterType="UpdatePassword">
+        update member set password=#{password} where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="string">
+        delete from member where id=#{id}
+    </delete>
 </mapper>

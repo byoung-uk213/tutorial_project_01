@@ -54,12 +54,6 @@
     <update id="updateOne" parameterType="article">
         update article set topic=#{topic}, title=#{title}, content=#{content} where no=#{no}
     </update>
-    <!-- 회원정보 수정 및 비번 수정 -->
-    <update id="updateTwo" parameterType="article">
-        update member set name=#{name}, nickname=#{nickname}, email=#{email} where id=#{id}
-    </update>
-
-
 
     <delete id="deleteByNo" parameterType="int">
         delete from article where no=#{no}
