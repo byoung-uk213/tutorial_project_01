@@ -9,8 +9,11 @@ body {
     margin: 0px;
 }
 .header{
-    height : 64px;
+    height : 80px;
     display: flex;
+    padding: 0px 20px;
+    color: forestgreen;
+    font-size: 30px;
     justify-content: space-between;
     align-items: center;
     background-color: #f4f4f4;

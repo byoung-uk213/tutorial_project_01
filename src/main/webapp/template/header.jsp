@@ -11,12 +11,12 @@
         로고
     </div>
     <div>
-        <a href="/community">커뮤니티</a>
+        검색창
     </div>
     <c:choose>
         <c:when test="${auth}">
             <div>
-                <button>스크랩</button>
+                <a href="/community"><button>커뮤니티</button></a>
                 <button>알림</button>
                 <a href="/setting/profile"><button>설정</button></a>
                 <a href="logout"><button>로그아웃</button></a>

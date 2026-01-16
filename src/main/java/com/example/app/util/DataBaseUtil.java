@@ -39,7 +39,7 @@ public class DataBaseUtil {
     }
 
     /*
-        select * frim member where id=?
+        select * from member where id=?
      */
     public static Member selectMemberById(String id) {
         try {
